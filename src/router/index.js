@@ -11,7 +11,7 @@ const routes = [
     //配置默认页面，一点进去的页面
     path:'',
     redirect: '/map'
-    //redirect重定向，当页面路径为''（一进去）时，自动进入home页面
+    //redirect重定向，当页面路径为''（一进去）时，自动进入
   },
   {
     path: '/map',

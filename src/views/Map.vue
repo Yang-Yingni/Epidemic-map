@@ -1,6 +1,6 @@
 <template>
   <div class="map">
-    <div id="chart" style="width: 100%;height: 650px"></div>
+    <div id="chart" style="width: 100%;height: 600px"></div>
   </div>
 </template>
 
@@ -49,7 +49,7 @@ const option = {
       //   {name: '西藏', value: 69},
       //   {name: '甘肃', value: 4},
       // ],
-      //data:Map.list,(data数组动态绑定Map实例中的dataList,但是俺整不出来呜呜)
+      //data:Map.dataList,//(data数组动态绑定Map实例中的dataList,但是俺整不出来呜呜)
       zoom:1,
       emphasis: {
         lable:{
@@ -76,8 +76,8 @@ const option = {
     },
     itemWidth: 10,
     itemHeight: 10,
-    bottom: 100,
-    left: 200
+    bottom: '15%',
+    left: '10%'
   }
 }
 
@@ -86,7 +86,7 @@ export default {
   data(){
     return{
       mycharts: '',
-      dataList: []
+      //dataList: []
       //name,
       //value
     }
@@ -104,14 +104,16 @@ export default {
         'http://interface.sina.cn/news/wap/fymap2020_data.d.json?_=1580892522427',
         (err, data) => {
           //console.log(data.data.list);
-          var list = data.data.list.map(item => {
+          const list = data.data.list.map(item => {
             return {
               name: item.name,
               value: item.value
-            };
+            }
           })
+          
         // 将数据给到地图
         option.series[0].data = list;
+              
         this.mycharts.setOption(option);
       })
     }
@@ -121,5 +123,9 @@ export default {
 
 
 <style scoped>
-
+.map {
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
 </style>
