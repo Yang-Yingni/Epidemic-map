@@ -1,12 +1,30 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/map" class="nav-item">实时疫情地图</router-link> 
+      <router-link to="/linechart" class="nav-item">实时疫情发展曲线</router-link>
     </div>
-    <router-view/>
+    <div class="view">
+      <router-view/>
+    </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+  },
+};
+</script>
+
 
 <style>
 #app {
@@ -18,15 +36,22 @@
 }
 
 #nav {
-  padding: 30px;
+  padding: 10px;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+/* .view {
+  width: 100%;
+  margin: auto 0;
+} */
+.nav-item {
+  color: rgb(0, 119, 255);
+  padding: 20px;
+  text-decoration: none;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.router-link-active{
+  color: rgb(96, 174, 138);
 }
 </style>
